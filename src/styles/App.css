@@ -1,23 +1,35 @@
+.app-container {
+  display: flex;
+  flex-direction: column; /* ek ke niche ek */
+  align-items: center;    /* center horizontally */
+  justify-content: center;
+  min-height: 100vh;
+  gap: 40px; /* thoda spacing between elements */
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
+  cursor: pointer;
+  text-align: center;
 }
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  background-color: red;
+  background-color: red; /* screenshot jaisa */
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 6px;
+  padding: 8px 12px;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* tooltip element ke upar show hoga */
+  top: 120%; /* niche show kare */
   left: 50%;
   transform: translateX(-50%);
-  white-space: nowrap;
   opacity: 0;
   transition: opacity 0.3s;
+  white-space: nowrap;
+  font-size: 14px;
 }
 
 .tooltip:hover .tooltiptext {

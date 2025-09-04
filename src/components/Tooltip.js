@@ -1,22 +1,20 @@
-import React, { useState } from "react";
-// import "./Tooltip.css"; // for styling
+import React, { useState, cloneElement } from "react";
 
 function Tooltip({ text, children }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  return (
-    <div
-      className="tooltip"
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
-      style={{ display: "inline-block", position: "relative" }}
-    >
-      {children}
-      {showTooltip && (
-        <span className="tooltiptext">{text}</span>
-      )}
-    </div>
-  );
+  // Child ko clone karke class aur events add karna
+  return cloneElement(children, {
+    className: `${children.props.className || ""} tooltip`.trim(),
+    onMouseEnter: () => setShowTooltip(true),
+    onMouseLeave: () => setShowTooltip(false),
+    children: (
+      <>
+        {children.props.children}
+        {showTooltip && <div className="tooltiptext">{text}</div>}
+      </>
+    ),
+  });
 }
 
 export default Tooltip;
