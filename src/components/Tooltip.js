@@ -3,7 +3,6 @@ import React, { useState, cloneElement } from "react";
 function Tooltip({ text, children }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  // Child ko clone karke class aur events add karna
   return cloneElement(children, {
     className: `${children.props.className || ""} tooltip`.trim(),
     onMouseEnter: () => setShowTooltip(true),
@@ -11,7 +10,12 @@ function Tooltip({ text, children }) {
     children: (
       <>
         {children.props.children}
-        {showTooltip && <div className="tooltiptext">{text}</div>}
+        <div
+          className="tooltiptext"
+          style={{ visibility: showTooltip ? "visible" : "hidden", opacity: showTooltip ? 1 : 0 }}
+        >
+          {text}
+        </div>
       </>
     ),
   });

@@ -1,10 +1,10 @@
 .app-container {
   display: flex;
-  flex-direction: column; /* ek ke niche ek */
-  align-items: center;    /* center horizontally */
+  flex-direction: column; 
+  align-items: center;
   justify-content: center;
   min-height: 100vh;
-  gap: 40px; /* thoda spacing between elements */
+  gap: 40px;
 }
 
 .tooltip {
@@ -16,14 +16,14 @@
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  background-color: red; /* screenshot jaisa */
+  background-color: red;
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 8px 12px;
   position: absolute;
   z-index: 1;
-  top: 120%; /* niche show kare */
+  top: 120%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
